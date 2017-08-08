@@ -1,0 +1,19 @@
+* {
+	font-family: Helvetica;
+	font-size: 14px;
+}
+#header {
+	font-size: 35px;
+	text-align: center;
+	margin: 50px;
+}
+.categories{
+	text-align: center;
+	background-color: #88CEC0;
+}
+.results{
+	background-color: #FFFDF7;
+}
+.totals:hover {
+	background-color: #FFD460;
+}

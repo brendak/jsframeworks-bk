@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	<script data-require="angular.js@1.4.x" data-semver="1.4.9" src="https://code.angularjs.org/1.4.9/angular.js">
+	</script>
+	<title>Which one?</title>
+  <script type="text/javascript">
+	   function foo(response) {
+	    var meta = response.meta;
+	    var data = response.data;
+	   }
+	   var script = document.createElement('script');
+	   script.src = 'https://api.github.com?callback=foo';
+
+	   document.getElementsByTagName('head')[0].appendChild(script);
+	</script>
+</head>
+<body ng-app="myA">
+	<div id="header">
+		Which One?
+	</div>
+	<div class="container" ng-controller="myC">
+		<div class="row">
+			<div class="col-sm-6 col-xs-offset-3">
+        <input class="filter-table" data-table="table table-bordered" placeholder="Filter me..." type="search">
+        <table class="table table-bordered">
+					<thead>
+						<tr class="categories">
+							<th>Framework ⇅</th>
+							<th>Stars ⇅</th>
+							<th>Forks ⇅</th>
+							<th>Open Issues ⇅</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="totals" ng-click="expand = !expand" >
+							<td>{{ name[0] }}</td>
+							<td>{{ total4 }}</td>
+							<td>{{ total5 }}</td>
+							<td>{{ total6 }}</td>
+						</tr>
+						<tr class="results" ng-init="total = 0" ng-repeat="na in angularData" ng-show="expand">
+							<td>{{na.owner.login}}</td>
+							<td ng-init="$parent.total4 = $parent.total4 + (na.stargazers_count)">{{ na.stargazers_count }}</td>
+							<td ng-init="$parent.total5 = $parent.total5 + (na.forks_count)">{{ na.forks_count }}</td>
+							<td ng-init="$parent.total6 = $parent.total6 + (na.open_issues_count)">{{ na.open_issues_count }}</td>
+						</tr>
+						<tr class="totals" ng-click="expand1 = !expand1" >
+							<td>{{ name[1] }}</td>
+							<td>{{ total10 }}</td>
+							<td>{{ total11 }}</td>
+							<td>{{ total12 }}</td>
+						</tr>
+						<tr class="results" ng-init="total = 0" ng-repeat="na in reactData" ng-show="expand1">
+							<td>{{na.owner.login}} {{na.name}}</td>
+							<td ng-init="$parent.total10 = $parent.total10 + (na.stargazers_count)">{{ na.stargazers_count }}</td>
+							<td ng-init="$parent.total11 = $parent.total11 + (na.forks_count)">{{ na.forks_count }}</td>
+							<td ng-init="$parent.total12 = $parent.total12 + (na.open_issues_count)">{{ na.open_issues_count }}</td>
+						</tr>
+						<tr class="totals" ng-click="expand2 = !expand2" >
+							<td>{{ name[2] }}</td>
+							<td>{{ total }}</td>
+							<td>{{ total2 }}</td>
+							<td>{{ total3 }}</td>
+						</tr>
+						<tr class="results" ng-init="total = 0" ng-repeat="na in vueData" ng-show="expand2">
+							<td>{{na.owner.login}}</td>
+							<td ng-init="$parent.total = $parent.total + (na.stargazers_count)">{{ na.stargazers_count }}</td>
+							<td ng-init="$parent.total2 = $parent.total2 + (na.forks_count)">{{ na.forks_count }}</td>
+							<td ng-init="$parent.total3 = $parent.total3 + (na.open_issues_count)">{{ na.open_issues_count }}</td>
+						</tr>
+						<tr class="totals" ng-click="expand3 = !expand3" >
+							<td>{{ name[3] }}</td>
+							<td>{{ total7 }}</td>
+							<td>{{ total8 }}</td>
+							<td>{{ total9 }}</td>
+						</tr>
+						<tr class="results" ng-init="total = 0" ng-repeat="na in emberData" ng-show="expand3">
+							<td>{{na.owner.login}}</td>
+							<td ng-init="$parent.total7 = $parent.total7 + (na.stargazers_count)">{{ na.stargazers_count }}</td>
+							<td ng-init="$parent.total8 = $parent.total8 + (na.forks_count)">{{ na.forks_count }}</td>
+							<td ng-init="$parent.total9 = $parent.total9 + (na.open_issues_count)">{{ na.open_issues_count }}</td>
+						</tr>
+					</tbody>
+				</table>*Click to expand and close
+			</div>
+    </div>
+		</div>
+	</div>
+	<script src="js/script.js">
+	</script>
+	<script src="js/app.js">
+	</script>
+	<script src="js/controller.js">
+	</script>
+</body>
+</html>
